@@ -79,7 +79,6 @@
 		display:flex;
 		margin-left:15vw;
 		width:70vw;
-		min-height:30vh;
 		border:3px rgba(255,255,255,0.5) inset;
 		border-radius:10px;
 		box-sizing:border-box;
