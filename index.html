@@ -1,0 +1,110 @@
+
+
+<!--Всем привет от создателя (Влада)-->
+<!DOCTYPE html>
+<html lang="ru" data-select="main">
+<head>
+   <meta charset="UTF-8">
+   <meta name="author" content="Villager0090818">
+   <link rel="stylesheet" href="style.css">
+   <title>Формулы по физике для ОГЭ</title>
+<style>
+
+	button
+	{
+		font-size:20px;
+		box-sizing:border-box;
+		padding:5px;
+		height:4rem;
+	}
+</style>
+</head>
+<body>
+
+<header>
+	<img src="icon.png" width="50" class="icon" alt="villager0090818">
+	<h1 id="now">Добро пожаловать ◄</h1>
+</header>
+
+<main>
+	<h1>Формулы для ОГЭ по физике</h1>
+</main>
+
+<div class="content navigation">
+	<h1>Все разделы на сайте :</h1>
+	<ul>
+		<li><a href="index.html" id="main">Главная страница</a></li>
+		<li><a href="mecha.html" id="mechanic">Механика</a></li>
+		<li><a href="teplo.html" id="teplo">Термодинамика</a></li>
+		<li><a href="optical.html" id="optical">Оптика</a></li>
+		<li><a href="electro.html" id="electro">Электродинамика</a></li>
+	</ul>
+</div>
+
+<div class="content">
+	<button id="quest">Нажми для вспоминания формул!</button>
+	<div id="answer"></div>
+</div>
+
+<div id="formul">
+</div>
+
+
+<script src="formuls.js"></script>
+<script src="logic.js"></script>
+
+<script>
+
+const quest = document.getElementById('quest');
+const answer = document.getElementById('answer');
+
+let say = 0;
+let now = null;
+
+quest.addEventListener('click',()=>{
+
+	setQuest();
+});
+
+function setQuest()
+{
+	if(say === 0)
+	{
+		let selection = Math.floor(Math.random() * 4) + 1;
+		if(selection === 1)selection = "mechanic";
+		else if(selection === 2)selection = "teplo";
+		else if(selection === 3)selection = "electro";
+		else selection = "optical";
+		quest.textContent = "Нажимай когда будешь готов дать ответ";
+		now = formuls[selection][Math.floor(Math.random() * formuls[selection].length)];
+
+		answer.innerHTML = `
+			<h2>${now.name}</h2>
+		`;
+	}
+
+	if(say === 1)
+	{
+		quest.textContent = "Дальше ?";
+		answer.innerHTML = `
+			<div class="size">${now.show}</div>
+			${now.description}
+		`;
+	}
+
+	if(say >= 1)say = -1;
+
+		console.log(now.name);
+	
+	say++;
+}
+
+
+
+</script>
+
+</body>
+</html>
+
+
+        
