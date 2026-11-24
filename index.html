@@ -30,15 +30,7 @@
 	<h1>Формулы для ОГЭ по физике</h1>
 </main>
 
-<div class="content navigation">
-	<h1>Все разделы на сайте :</h1>
-	<ul>
-		<li><a href="index.html" id="main">Главная страница</a></li>
-		<li><a href="mecha.html" id="mechanic">Механика</a></li>
-		<li><a href="teplo.html" id="teplo">Термодинамика</a></li>
-		<li><a href="optical.html" id="optical">Оптика</a></li>
-		<li><a href="electro.html" id="electro">Электродинамика</a></li>
-	</ul>
+<div class="content" id="navigation">
 </div>
 
 <div class="content">
@@ -50,57 +42,10 @@
 </div>
 
 
-<script src="formuls.js"></script>
-<script src="logic.js"></script>
+<script src="javascript/formuls.js"></script>
+<script src="javascript/logic.js"></script>
 
-<script>
-
-const quest = document.getElementById('quest');
-const answer = document.getElementById('answer');
-
-let say = 0;
-let now = null;
-
-quest.addEventListener('click',()=>{
-
-	setQuest();
-});
-
-function setQuest()
-{
-	if(say === 0)
-	{
-		let selection = Math.floor(Math.random() * 4) + 1;
-		if(selection === 1)selection = "mechanic";
-		else if(selection === 2)selection = "teplo";
-		else if(selection === 3)selection = "electro";
-		else selection = "optical";
-		quest.textContent = "Нажимай когда будешь готов дать ответ";
-		now = formuls[selection][Math.floor(Math.random() * formuls[selection].length)];
-
-		answer.innerHTML = `
-			<h2>${now.name}</h2>
-		`;
-	}
-
-	if(say === 1)
-	{
-		quest.textContent = "Дальше ?";
-		answer.innerHTML = `
-			<div class="size">${now.show}</div>
-			${now.description}
-		`;
-	}
-
-	if(say >= 1)say = -1;
-
-		console.log(now.name);
-	
-	say++;
-}
-
-
-
+<script src="javascript/test.js">
 </script>
 
 </body>
